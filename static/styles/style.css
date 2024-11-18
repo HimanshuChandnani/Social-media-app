@@ -1,0 +1,278 @@
+body{
+    background-color: black;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #ffffff60;
+}
+
+header .navbar{
+    background-color: black !important;
+}
+
+header .navbar a{
+    font-size: 20px;
+    line-height: 2;
+    padding: 10px 10px !important;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+header .navbar a.nav-link:hover{
+    background-color: #ffffff10;
+}
+
+.navbar, .navbar-nav{
+    display: block;
+}
+
+.navbar .dropdown-menu{
+    background-color: #ffffff10;
+    padding: 0;
+    border-radius: 10px;
+}
+
+.navbar .dropdown-menu .dropdown-item{
+    color: #ffffffaa !important;
+    transition: 0.2s;
+}
+.navbar .dropdown-menu .dropdown-item:hover{
+    background-color: #303030;
+    color: #ffffffdd !important;
+}
+
+.post{
+    background-color: #ffffff10;
+    color: white !important;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.post .user{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.post .user .pfp{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.post .user .name{
+    color: white;
+    text-decoration: none;
+}
+
+.post .user .time{
+    font-size: 8px;
+    margin: 0;
+    margin-top: 4px;
+}
+
+.post .image{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4 / 3;
+}
+
+.post .image .image-fr{
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.post .image .image-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    filter: blur(3px);
+    object-fit: cover;
+}
+
+.post .comments{
+    background-color: black;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+    height: 465px;
+}
+
+.post .comments .send-comment{
+    background-color: #303030;
+    padding: 8px 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.post .comments .send-comment input, .icon{
+    background-color: unset;
+    border: none;
+    color: white;
+    outline: none;
+    padding: 0;
+}
+
+.post .comments .send-comment input{
+    width: 100%;
+}
+
+.icon svg{
+    height: 25px;
+    width: 25px;
+    fill: white;
+}
+
+.icon.back{
+    margin-top: 10px;
+    background-color: #ffffff10;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.icon.back:hover{
+    background-color: #ffffff40;
+}
+
+.post .comments .comment{
+    background-color: #ffffff10;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.post .comments .comment .user .pfp{
+    width: 30px;
+    height: 30px;
+}
+
+.post .comments .comment .user{
+    padding-bottom: 5px;
+}
+
+.post .comments .comment .text{
+    font-size: 14px;
+}
+
+.post-items .caption{
+    margin: 0;
+}
+
+.post-items .options{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    align-items: center;
+}
+
+.post-items .options .icon.option svg{
+    height: 30px;
+    width: 30px;
+    fill: transparent;
+    stroke: white;
+    transition: 0.2s;
+}
+.post-items .options .icon.option.like-icon:hover svg{
+    stroke: #ffc1c1;
+}
+.post-items .options .icon.option.com-icon svg{
+    fill: white;
+}
+.post-items .options .icon.option.com-icon:hover svg{
+    fill: #bad0ff;
+}
+.post-items .options .icon.option.edit-icon:hover svg{
+    stroke: #8cffb6;
+}
+.post-items .options .icon.option.del-icon:hover svg{
+    stroke: #ffc1c1;
+}
+
+.post-items .options .icon.option.liked svg{
+    fill: rgb(255, 0, 0) !important;
+    stroke: red !important;
+}
+
+.post-items .options .icon.option .text{
+    margin-bottom: 0;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.form{
+    background-color: #ffffff10;
+    color: white !important;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form label{
+    margin: 0;
+    line-height: 1;
+    margin-top: 5px;
+}
+
+.form input[type="file"]{
+    padding: 0;
+    background-color: #ffffff10;
+}
+
+.form input[type="file"]::file-selector-button{
+    background-color: #303030;
+    border: none;
+    outline: none;
+    width: 30%;
+    height: 50px;
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+    transition: 0.2s;
+}
+
+.form input[type="file"]::file-selector-button:hover{
+    background-color: #595959;
+}
+
+.form input[type="submit"]{
+    margin-top: 10px;
+}
+
+.form input[type="submit"]:hover{
+    background-color: #595959;
+}
+
+
+.form input, .form textarea{
+    background-color: #303030;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    color: white;
+    transition: 0.2s;
+}
+
+.form .error{
+    margin: 0 !important;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%include "head.html"%}
+        <title>Home</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">{%include 'navbar.html'%}</div>
+                <div class="col-lg-9">
+                    <div class="content">
+                        {%for i in content%}
+                        <div class="post">
+                            <div class="post-items">
+                                <div class="user">
+                                    {%for j in pfp%} {%if j[0] == i[1]%}
+                                    <img class="pfp" onerror="this.src='static/media/pfp/default/default.jpg';" src="{{j[1]}}" />
+                                    {%endif%} {%endfor%}
+                                    <a href="/user/{{i[0]}}" class="name">{{i[1]}}</a>
+                                    <p class="time">{{i[2]}}</p>
+                                </div>
+                                <a href="{{i[3]}}" target="_blank">
+                                    <div class="image" style="background-image: url('{{i[3]}}');">
+                                        <img class="image-fr" src="{{i[3]}}" alt="" />
+                                        <img class="image-bg" src="{{i[3]}}" alt="" />
+                                    </div>
+                                </a>
+                                <div class="options">
+                                    {%if (i[0],) in userLikes%}
+                                    <button onclick="handleLike(this, '{{i[0]}}')" class="icon option like-icon liked">
+                                    {%else%}
+                                    <button onclick="handleLike(this, '{{i[0]}}')" class="icon option like-icon">
+                                    {%endif%}
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <g id="SVGRepo_iconCarrier"><path d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z" stroke="inherit" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
+                                        </svg>
+                                        <p class="text">{{postLikes[i[0]]}}</p>
+                                    </button>
+                                    <a href="/comment&{{i[0]}}">
+                                        <button class="icon option com-icon">
+                                            <svg viewBox="0 0 32 32" version="1.1" fill="#fff">
+                                                <g id="SVGRepo_iconCarrier"> 
+                                                    <g id="Page-1" stroke="none" stroke-width="0.5" fill="inherit" fill-rule="evenodd" sketch:type="MSPage"> 
+                                                        <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-152.000000, -255.000000)" fill="inherit"> <path d="M168,281 C166.832,281 165.704,280.864 164.62,280.633 L159.912,283.463 L159.975,278.824 C156.366,276.654 154,273.066 154,269 C154,262.373 160.268,257 168,257 C175.732,257 182,262.373 182,269 C182,275.628 175.732,281 168,281 L168,281 Z M168,255 C159.164,255 152,261.269 152,269 C152,273.419 154.345,277.354 158,279.919 L158,287 L165.009,282.747 C165.979,282.907 166.977,283 168,283 C176.836,283 184,276.732 184,269 C184,261.269 176.836,255 168,255 L168,255 Z M175,266 L161,266 C160.448,266 160,266.448 160,267 C160,267.553 160.448,268 161,268 L175,268 C175.552,268 176,267.553 176,267 C176,266.448 175.552,266 175,266 L175,266 Z M173,272 L163,272 C162.448,272 162,272.447 162,273 C162,273.553 162.448,274 163,274 L173,274 C173.552,274 174,273.553 174,273 C174,272.447 173.552,272 173,272 L173,272 Z" id="comment-2" sketch:type="MSShapeGroup"> </path> 
+                                                        </g> 
+                                                    </g> 
+                                                </g>
+                                            </svg>
+                                            <p class="text">{{postComments[i[0]]}}</p>
+                                        </button>
+                                    </a>
+                                    <button class="icon option edit-icon">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <g id="SVGRepo_iconCarrier"> 
+                                                <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="inherit" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                                <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="inherit" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                            </g>
+                                        </svg>
+                                        <p class="text">Edit</p>
+                                    </button>
+                                    <button class="icon option del-icon">
+                                        <svg viewBox="0 0 24 24" fill="none">
+                                            <g id="SVGRepo_iconCarrier"> 
+                                                <path d="M20.5001 6H3.5" stroke="inherit" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="inherit" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                <path d="M9.5 11L10 16" stroke="inherit" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                <path d="M14.5 11L14 16" stroke="inherit" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="inherit" stroke-width="1.5"></path> 
+                                            </g>
+                                        </svg>
+                                        <p class="text">Delete</p>
+                                    </button>
+                                </div>
+                                <p class="caption">{{i[4]}}</p>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

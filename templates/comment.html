@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%include "head.html"%}
+        <title>Home</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 nav-container">{%include 'navbar.html'%}</div>
+                <div class="col-lg-9">
+                    <div class="content">
+                        <button class="icon back" onclick="window.history.go(-1); return false;">
+                            <svg viewBox="0 0 24 24" version="1.1" fill="#000000">
+                                <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Arrow" transform="translate(-242.000000, -48.000000)">
+                                        <g id="back_fill" transform="translate(242.000000, 48.000000)">
+                                            <path
+                                                d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z"
+                                                id="MingCute"
+                                                fill-rule="nonzero"
+                                            ></path>
+                                            <path d="M2.61422,5.42597 C2.8464,4.86546 3.39335,4.5 4.00004,4.5 L13.9999979,4.5 C18.1422,4.5 21.4999979,7.85786 21.4999979,12 C21.4999979,16.1421 18.1422,19.5 13.9999979,19.5 L5.00004,19.5 C4.17162,19.5 3.50004,18.8284 3.50004,18 C3.50004,17.1716 4.17162,16.5 5.00004,16.5 L13.9999979,16.5 C16.4853,16.5 18.4999979,14.4853 18.4999979,12 C18.4999979,9.51472 16.4853,7.5 13.9999979,7.5 L7.62136,7.5 L8.5607,8.43934 C9.14649,9.02513 9.14649,9.97487 8.5607,10.5607 C7.97492,11.1464 7.02517,11.1464 6.43938,10.5607 L2.93938,7.06066 C2.51039,6.63166 2.38205,5.98649 2.61422,5.42597 Z" id="路径" fill="#ffffff"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                        <div class="post">
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="post-items">
+                                        <div class="user">
+                                            <img class="pfp" onerror="this.src='static/media/pfp/default/default.jpg';" src="{{mainPfp[0][0]}}" />
+                                            <a href="/user/{{post[0][1]}}" class="name">{{post[0][1]}}</a>
+                                            <p class="time">{{post[0][2]}}</p>
+                                        </div>
+                                        <a href="{{post[0][3]}}" target="_blank">
+                                            <div class="image" style="background-image: url('{{post[0][3]}}');">
+                                                <img class="image-fr" src="{{post[0][3]}}" alt="" />
+                                                <img class="image-bg" src="{{post[0][3]}}" alt="" />
+                                            </div>
+                                        </a>
+                                        <div class="options">
+                                            {%if userLikes%}
+                                            <button onclick="handleLike(this, '{{post[0][0]}}')" class="icon option liked">
+                                            {%else%}
+                                            <button onclick="handleLike(this, '{{post[0][0]}}')" class="icon option">
+                                            {%endif%}
+                                                <svg viewBox="0 0 24 24" fill="none">
+                                                    <g id="SVGRepo_iconCarrier"><path d="M15.7 4C18.87 4 21 6.98 21 9.76C21 15.39 12.16 20 12 20C11.84 20 3 15.39 3 9.76C3 6.98 5.13 4 8.3 4C10.12 4 11.31 4.91 12 5.71C12.69 4.91 13.88 4 15.7 4Z" stroke="inherit" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g>
+                                                </svg>
+                                                <p class="text">{{postLikes}}</p>
+                                            </button>
+                                            <button class="icon option">
+                                                <svg viewBox="0 0 24 24" fill="none">
+                                                    <g id="SVGRepo_iconCarrier"> 
+                                                        <path d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                                        <path d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                            <button class="icon option">
+                                                <svg viewBox="0 0 24 24" fill="none">
+                                                    <g id="SVGRepo_iconCarrier"> 
+                                                        <path d="M20.5001 6H3.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                        <path d="M18.8332 8.5L18.3732 15.3991C18.1962 18.054 18.1077 19.3815 17.2427 20.1907C16.3777 21 15.0473 21 12.3865 21H11.6132C8.95235 21 7.62195 21 6.75694 20.1907C5.89194 19.3815 5.80344 18.054 5.62644 15.3991L5.1665 8.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                        <path d="M9.5 11L10 16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                        <path d="M14.5 11L14 16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> 
+                                                        <path d="M6.5 6C6.55588 6 6.58382 6 6.60915 5.99936C7.43259 5.97849 8.15902 5.45491 8.43922 4.68032C8.44784 4.65649 8.45667 4.62999 8.47434 4.57697L8.57143 4.28571C8.65431 4.03708 8.69575 3.91276 8.75071 3.8072C8.97001 3.38607 9.37574 3.09364 9.84461 3.01877C9.96213 3 10.0932 3 10.3553 3H13.6447C13.9068 3 14.0379 3 14.1554 3.01877C14.6243 3.09364 15.03 3.38607 15.2493 3.8072C15.3043 3.91276 15.3457 4.03708 15.4286 4.28571L15.5257 4.57697C15.5433 4.62992 15.5522 4.65651 15.5608 4.68032C15.841 5.45491 16.5674 5.97849 17.3909 5.99936C17.4162 6 17.4441 6 17.5 6" stroke="#ffffff" stroke-width="1.5"></path> 
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <p class="caption">{{post[0][4]}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="comments">
+                                        <form class="send-comment" method="post" autocomplete="off">
+                                            <input type="text" name="comment" placeholder="Comment" />
+                                            <button class="icon" type="submit">
+                                                <svg viewBox="0 -0.5 25 25" fill="none">
+                                                    <g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.455 9.8834L7.063 4.1434C6.76535 3.96928 6.40109 3.95274 6.08888 4.09916C5.77667 4.24558 5.55647 4.53621 5.5 4.8764C5.5039 4.98942 5.53114 5.10041 5.58 5.2024L7.749 10.4424C7.85786 10.7903 7.91711 11.1519 7.925 11.5164C7.91714 11.8809 7.85789 12.2425 7.749 12.5904L5.58 17.8304C5.53114 17.9324 5.5039 18.0434 5.5 18.1564C5.55687 18.4961 5.77703 18.7862 6.0889 18.9323C6.40078 19.0785 6.76456 19.062 7.062 18.8884L18.455 13.1484C19.0903 12.8533 19.4967 12.2164 19.4967 11.5159C19.4967 10.8154 19.0903 10.1785 18.455 9.8834V9.8834Z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g>
+                                                </svg>
+                                            </button>
+                                        </form>
+                                        {%for i in comments%}
+                                        <div class="comment">
+                                            <div class="user">
+                                                {%for j in pfp%} {%if j[0] == i[2]%}
+                                                <img class="pfp" onerror="this.src='static/media/pfp/default/default.jpg';" src="{{j[1]}}" />
+                                                {%endif%} {%endfor%}
+                                                <a href="/user/{{i[1]}}" class="name">{{i[2]}}</a>
+                                                <p class="time">{{i[3]}}</p>
+                                            </div>
+                                            <div class="text">{{i[4]}}</div>
+                                        </div>
+                                        {%endfor%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script></script>
+    </body>
+</html>

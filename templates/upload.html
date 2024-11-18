@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%include "head.html"%}
+        <title>Home</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">{%include 'navbar.html'%}</div>
+                <div class="col-lg-9">
+                    <div class="upload">
+                        <form class="form" action="" method="post" enctype="multipart/form-data">
+                            <label for="file">Image</label>
+                            <input type="file" name="file" accept="image/*" required />
+                            <label for="caption">Caption</label>
+                            <textarea name="caption"></textarea>
+                            <input type="submit" name="uplaod" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

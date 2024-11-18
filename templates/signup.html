@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%include "head.html"%}
+        <title>Signup</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">{% include "navbar.html" %}</div>
+                <div class="col-lg-9">
+                    <form class="form" action="" method="post" enctype="multipart/form-data">
+                        <label for="pfp">Profile pic</label>
+                        <input type="file" name="pfp" />
+                        <label for="name">Name</label>
+                        <input type="text" name="name" required />
+                        <label for="email">Email</label>
+                        <input type="email" name="email" required />
+                        <label for="password">Password</label>
+                        <input type="password" name="password" required />
+                        <input type="submit" />
+                        {% if error %}
+                        <p class="error">{{error}}</p>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,5 +1,35 @@
+html{
+    overflow-y: scroll;
+}
+
 body{
     background-color: black;
+}
+
+body *{
+    /* width */
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background-color: #ffffff20;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background-color: #888;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #ffffffaa;
+    }
+}
+
+.col-lg-3:has(header){
+    padding-right: 0;
 }
 
 header{
@@ -107,9 +137,17 @@ header .navbar a.nav-link:hover{
 .post .comments{
     background-color: black;
     border-radius: 10px;
-    padding: 20px;
+    padding-bottom: 20px;
     overflow: auto;
     height: 465px;
+}
+
+.post .comments .comment-form{
+    padding: 20px;
+    padding-bottom: 10px;
+    background-color: black;
+    position: sticky;
+    top: 0;
 }
 
 .post .comments .send-comment{
@@ -118,9 +156,13 @@ header .navbar a.nav-link:hover{
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
     width: 100%;
 }
+
+.post .comments .comment-container{
+    padding: 0 20px;
+}
+
 .post .comments .send-comment input, .icon{
     background-color: unset;
     border: none;
@@ -179,6 +221,10 @@ header .navbar a.nav-link:hover{
     justify-content: space-around;
     padding: 10px;
     align-items: center;
+}
+
+.post-items .options a{
+    line-height: 0;
 }
 
 .post-items .options .icon.option svg{
@@ -273,6 +319,209 @@ header .navbar a.nav-link:hover{
     transition: 0.2s;
 }
 
-.form .error{
+.error{
     margin: 0 !important;
+    color: #ff9797;
+}
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.chatTitle{
+    color: white;
+    border-bottom: 1px solid #ffffff60;
+    padding: 20px;
+    font-size: 25px;
+    position: sticky;
+    top: 0;
+    background-color: black;
+}
+
+.chatInput{
+    background-color:#303030;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.chatForm{
+    position: sticky;
+    bottom: 0;
+    background-color: black;
+    padding: 10px 0;
+}
+
+.chatUsers{
+    display: flex;
+    flex-direction: column;
+}
+
+.chatUsers .chatBtn{
+    padding: 20px;
+    color: white;
+    border-bottom: 1px solid #ffffff60;
+    text-decoration: none;
+    transition: 0.2s;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.chatUsers .pfp{
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    margin-right: 5px;
+    object-fit: cover;
+}
+
+.chatUsers .chatBtn:first-child{
+    border-top: 1px solid #ffffff60;
+}
+
+.chatUsers .chatBtn:hover, .chatUsers .chatBtn.active{
+    background-color: #ffffff10;
+}
+
+.userForm{
+    position: sticky;
+    top: 0;
+    background-color: black;
+    padding: 10px 15px;
+}
+
+.users{
+    border-right: 1px solid #ffffff60;
+    padding: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+}
+
+.chatInput input, .chatInput button{
+    background-color: unset;
+    color: white;
+    border: none;
+    outline: none;
+}
+.chatInput input{
+    flex: 1;
+}
+.chatInput button svg{
+    height: 25px;
+    width: 25px;
+    fill: white;
+    transition: 0.2s;
+}
+.chatInput button:hover svg{
+    fill: #ffffffbb;
+}
+
+.chat .message{
+    background-color: #ffffff30;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: white;
+    min-width: 400px;
+    width: 60%;
+}
+
+.chat .message:last-child{
+    margin: 0;
+}
+
+.chat .message.left{
+    border-top-left-radius: 0;
+    align-self: flex-start;
+}
+.chat .message.right{
+    border-top-right-radius: 0;
+    align-self: flex-end;
+}
+
+.chat .message .user{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 15px;
+}
+
+.chat .message .user .pfp{
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+.chat .message .user .name{
+    color: white;
+}
+.chat .message .user .time{
+    font-size: 8px;
+    margin: 0;
+    margin-top: 4px;
+}
+
+.profile-head{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    border-bottom: 1px solid #ffffff60;
+}
+
+.profile-head h1{
+    color: white;
+    flex: 1;
+}
+
+.profile-head .ed-profile{
+    background-color: #ffffff10;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.profile-head .ed-profile:hover{
+    background-color: #ffffff20;
+}
+
+.profile-head img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100px;
+}
+
+.profile-posts{
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-posts a{
+    width: 33.33%;
+    padding: 10px;
+
+}
+
+.profile-posts img{
+    width: 100%;
+    transition: 0.2s;
+    outline: 1px solid transparent;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+
+}
+
+.profile-posts img:hover{
+    outline: 1px solid #ffffff40;
 }

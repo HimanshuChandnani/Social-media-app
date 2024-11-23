@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        {%include "head.html"%}
-        <title>Home</title>
+        {%include "head.html"%} {%if post%}
+        <title>Edit post</title>
+        {%else%}
+        <title>Create post</title>
+        {%endif%}
     </head>
     <body>
         <div class="container">
@@ -12,9 +15,18 @@
                     <div class="upload">
                         <form class="form" action="" method="post" enctype="multipart/form-data">
                             <label for="file">Image</label>
+                            {%if post%}
+                            <input type="file" name="file" accept="image/*" />
+                            {%else%}
                             <input type="file" name="file" accept="image/*" required />
+                            {%endif%}
+
                             <label for="caption">Caption</label>
+                            {%if post%}
+                            <textarea name="caption">{{post[0][4]}}</textarea>
+                            {%else%}
                             <textarea name="caption"></textarea>
+                            {%endif%}
                             <input type="submit" name="uplaod" />
                         </form>
                     </div>

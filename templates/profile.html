@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%include "head.html"%}
+        <title>Profile</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">{% include "navbar.html" %}</div>
+                <div class="col-lg-9">
+                    <div class="profile-head">
+                        <a href="{{pfp}}" target="_blank"><img src="{{pfp}}" onerror="this.src='static/media/pfp/default/default.jpg'; this.parentElement.href='static/media/pfp/default/default.jpg'" /></a>
+                        <h1>{{name}}</h1>
+                        {%if name == username%}
+                        <a href="edit-profile" class="ed-profile">Edit Profile</a>
+                        {%endif%}
+                    </div>
+                    <div class="profile-posts">
+                        {%for i in posts%}
+                        <a href="/comment&{{i[0]}}"><img src="{{i[1]}}" /></a>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

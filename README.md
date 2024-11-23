@@ -57,21 +57,16 @@ A Flask-based social media application developed as an assignment for the comple
 
 1. Clone the repository:
     ```
-    git clone https://github.com/yourusername/social-media-app.git
+    git clone https://github.com/HimanshuChandnani/Social-media-app.git
     cd social-media-app
     ```
-2. Create a virtual environment and activate it:
+2. Activate the virtual environment it:
 
     ```
-    python -m venv venv
-    venv/Scripts/activate
+    social/Scripts/activate
     ```
 
-3. Install the required packages:
-    ```
-    pip install -r requirements.txt
-    ```
-4. Set up the database:
+3. Set up the database:
 
 -   Locate the social.sql file in the db/ folder.
 -   Import the file into your MySQL database using phpMyAdmin or the MySQL command line:
@@ -79,13 +74,13 @@ A Flask-based social media application developed as an assignment for the comple
     SOURCE path_to_social.sql;
     ```
 
-5. Start the server:
+4. Start the server:
     ```
     py app.py
     ```
-6. Access the application in your browser:
-    ```arduino
-    http://127.0.0.1:12345/
+5. Access the application in your browser:
+    ```
+    [http://127.0.0.1:12345/](http://127.0.0.1:12345/)
     ```
 
 ## Project Structure

@@ -380,7 +380,7 @@ def login():
     if request.method == "POST":
         name = request.form.get("name")
         password = request.form.get("password")
-        if getContent(f"select * from auth where name = %s' and password = %s", (name, password)):
+        if getContent(f"select * from auth where name = %s and password = %s", (name, password)):
             session["name"] = getContent(f"select name from auth where name = %s and password = %s", (name, password))[0][0]
             return redirect("/")
         else:

@@ -79,9 +79,7 @@ A Flask-based social media application developed as an assignment for the comple
     py app.py
     ```
 5. Access the application in your browser:
-    ```
     [http://127.0.0.1:12345/](http://127.0.0.1:12345/)
-    ```
 
 ## Project Structure
 
